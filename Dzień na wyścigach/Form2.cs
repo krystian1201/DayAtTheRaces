@@ -13,10 +13,10 @@ namespace Dzień_na_wyścigach
     public partial class Form2 : Form
     {
         private readonly List<Greyhound> _greyhounds;
+        private readonly List<Player> _players;
+         
         private readonly Random _random;
-        private const int MIN_GREYHOUND_MOVE = 5;
-        private const int MAX_GREYHOUND_MOVE = 20;
-        private readonly int _greyhoundWidth;
+        
         private readonly int _racetrackLength;
 
         public Form2()
@@ -25,13 +25,15 @@ namespace Dzień_na_wyścigach
 
             _random = new Random();
 
-            _greyhounds = new List<Greyhound>
-            {
-                new Greyhound(pictureBoxGreyhound)
-            };
+            _greyhounds = new List<Greyhound>();
+
+            int greyhoundNumber = _greyhounds.Count;
+
+            _greyhounds.Add(new Greyhound(pictureBoxGreyhound, greyhoundNumber));
 
 
-            _greyhoundWidth = _greyhounds[0].PictureBox.Width;
+            _players = new List<Player>();
+
             _racetrackLength = pictureBoxRaceTrackLane.Width;
         }
 
@@ -53,7 +55,7 @@ namespace Dzień_na_wyścigach
 
         private void AnimateGreyhound(Greyhound greyhound)
         {
-            int greyhoundMove = _random.Next(MIN_GREYHOUND_MOVE, MAX_GREYHOUND_MOVE);
+            int greyhoundMove = _random.Next(Greyhound.MIN_MOVE, Greyhound.MAX_MOVE);
 
             greyhound.Location = new Point(greyhound.Location.X + greyhoundMove, greyhound.Location.Y);
 
@@ -62,7 +64,7 @@ namespace Dzień_na_wyścigach
         private bool CrossedTheFinishLine(Greyhound greyhound)
         {
 
-            if (greyhound.Location.X + _greyhoundWidth >= _racetrackLength)
+            if (greyhound.Location.X + Greyhound.WIDTH >= _racetrackLength)
             {
                 return true;
             }

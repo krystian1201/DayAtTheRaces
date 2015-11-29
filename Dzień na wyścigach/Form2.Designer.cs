@@ -74,7 +74,7 @@
             this.groupBox1.Controls.Add(this.minimumBetLabel);
             this.groupBox1.Location = new System.Drawing.Point(6, 225);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 143);
+            this.groupBox1.Size = new System.Drawing.Size(600, 116);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dom bukmacherski";
@@ -83,7 +83,7 @@
             // 
             this.buttonAcceptBet.Location = new System.Drawing.Point(133, 82);
             this.buttonAcceptBet.Name = "buttonAcceptBet";
-            this.buttonAcceptBet.Size = new System.Drawing.Size(215, 23);
+            this.buttonAcceptBet.Size = new System.Drawing.Size(204, 23);
             this.buttonAcceptBet.TabIndex = 18;
             this.buttonAcceptBet.Text = "Zatwierdź zakład";
             this.buttonAcceptBet.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             // Kwota
             // 
             this.Kwota.AutoSize = true;
-            this.Kwota.Location = new System.Drawing.Point(141, 39);
+            this.Kwota.Location = new System.Drawing.Point(130, 39);
             this.Kwota.Name = "Kwota";
             this.Kwota.Size = new System.Drawing.Size(37, 13);
             this.Kwota.TabIndex = 17;
@@ -107,9 +107,9 @@
             // listBoxBets
             // 
             this.listBoxBets.FormattingEnabled = true;
-            this.listBoxBets.Location = new System.Drawing.Point(378, 37);
+            this.listBoxBets.Location = new System.Drawing.Point(345, 39);
             this.listBoxBets.Name = "listBoxBets";
-            this.listBoxBets.Size = new System.Drawing.Size(106, 69);
+            this.listBoxBets.Size = new System.Drawing.Size(139, 69);
             this.listBoxBets.TabIndex = 15;
             // 
             // listBoxPlayers
@@ -133,7 +133,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(306, 56);
+            this.numericUpDown2.Location = new System.Drawing.Point(295, 56);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             3,
             0,
@@ -166,7 +166,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(397, 16);
+            this.label1.Location = new System.Drawing.Point(377, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 4;
@@ -211,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 373);
+            this.ClientSize = new System.Drawing.Size(613, 348);
             this.Controls.Add(this.pictureBoxGreyhound);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);

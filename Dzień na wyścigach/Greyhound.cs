@@ -10,7 +10,10 @@ namespace Dzień_na_wyścigach
 {
     public class Greyhound
     {
-        //public int StartingPosition;
+        public const int MIN_MOVE = 5;
+        public const int MAX_MOVE = 20;
+        public const int WIDTH = 74;
+
         public PictureBox PictureBox;
         public Random MyRandom;
 
@@ -21,9 +24,13 @@ namespace Dzień_na_wyścigach
             set { PictureBox.Location = value; }
         }
 
-        public Greyhound(PictureBox pictureBox)
+        public int Number { get; private set; }
+
+        public Greyhound(PictureBox pictureBox, int number)
         {
             PictureBox = pictureBox;
+            Number = number;
         }
+
     }
 }
