@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dzień_na_wyścigach.Properties;
 
 namespace Dzień_na_wyścigach
 {
@@ -17,7 +18,7 @@ namespace Dzień_na_wyścigach
          
         private readonly Random _random;
         
-        private readonly int _racetrackLength;
+        private int _racetrackLength;
 
         public Form2()
         {
@@ -29,12 +30,14 @@ namespace Dzień_na_wyścigach
 
             int greyhoundNumber = _greyhounds.Count;
 
-            _greyhounds.Add(new Greyhound(pictureBoxGreyhound, greyhoundNumber));
+            //_greyhounds.Add(new Greyhound(new PictureBox(Resources.dog), greyhoundNumber));
 
 
             _players = new List<Player>();
 
-            _racetrackLength = pictureBoxRaceTrackLane.Width;
+            InitializeRaceTrack();
+
+           
         }
 
 
@@ -70,6 +73,26 @@ namespace Dzień_na_wyścigach
             }
 
             return false;
+        }
+
+        private void InitializeRaceTrack()
+        {
+            AddRaceTrackLane();
+
+            _racetrackLength = (tableLayoutPanel1.Controls[0]).Width;
+        }
+
+        private void numericUpDownNumberOfGreyhounds_ValueChanged(object sender, EventArgs e)
+        {
+            AddRaceTrackLane();
+        }
+
+        private void AddRaceTrackLane()
+        {
+            PictureBox pictureBoxTrackLane = new PictureBox { Image = Resources.racetrack_lane };
+            pictureBoxTrackLane.Dock = Dock = DockStyle.Fill;
+
+            this.tableLayoutPanel1.Controls.Add(pictureBoxTrackLane);
         }
     }
 }

@@ -29,48 +29,37 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            this.pictureBoxGreyhound = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonAcceptBet = new System.Windows.Forms.Button();
-            this.Kwota = new System.Windows.Forms.Label();
+            this.labelAmount = new System.Windows.Forms.Label();
             this.textBoxBetAmount = new System.Windows.Forms.TextBox();
             this.listBoxBets = new System.Windows.Forms.ListBox();
             this.listBoxPlayers = new System.Windows.Forms.ListBox();
             this.startButton = new System.Windows.Forms.Button();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDownGreyhoundForBet = new System.Windows.Forms.NumericUpDown();
+            this.labelGreyoundBet = new System.Windows.Forms.Label();
+            this.labelBets = new System.Windows.Forms.Label();
             this.minimumBetLabel = new System.Windows.Forms.Label();
-            this.pictureBoxRaceTrackLane = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGreyhound)).BeginInit();
+            this.numericUpDownNumberOfGreyhounds = new System.Windows.Forms.NumericUpDown();
+            this.labelNumberOfGreyhounds = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRaceTrackLane)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfGreyhounds)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxGreyhound
-            // 
-            this.pictureBoxGreyhound.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxGreyhound.Image")));
-            this.pictureBoxGreyhound.Location = new System.Drawing.Point(6, 100);
-            this.pictureBoxGreyhound.Name = "pictureBoxGreyhound";
-            this.pictureBoxGreyhound.Size = new System.Drawing.Size(74, 21);
-            this.pictureBoxGreyhound.TabIndex = 8;
-            this.pictureBoxGreyhound.TabStop = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.buttonAcceptBet);
-            this.groupBox1.Controls.Add(this.Kwota);
+            this.groupBox1.Controls.Add(this.labelAmount);
             this.groupBox1.Controls.Add(this.textBoxBetAmount);
             this.groupBox1.Controls.Add(this.listBoxBets);
             this.groupBox1.Controls.Add(this.listBoxPlayers);
             this.groupBox1.Controls.Add(this.startButton);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.numericUpDownGreyhoundForBet);
+            this.groupBox1.Controls.Add(this.labelGreyoundBet);
+            this.groupBox1.Controls.Add(this.labelBets);
             this.groupBox1.Controls.Add(this.minimumBetLabel);
             this.groupBox1.Location = new System.Drawing.Point(6, 225);
             this.groupBox1.Name = "groupBox1";
@@ -88,14 +77,14 @@
             this.buttonAcceptBet.Text = "Zatwierdź zakład";
             this.buttonAcceptBet.UseVisualStyleBackColor = true;
             // 
-            // Kwota
+            // labelAmount
             // 
-            this.Kwota.AutoSize = true;
-            this.Kwota.Location = new System.Drawing.Point(130, 39);
-            this.Kwota.Name = "Kwota";
-            this.Kwota.Size = new System.Drawing.Size(37, 13);
-            this.Kwota.TabIndex = 17;
-            this.Kwota.Text = "Kwota";
+            this.labelAmount.AutoSize = true;
+            this.labelAmount.Location = new System.Drawing.Point(130, 39);
+            this.labelAmount.Name = "labelAmount";
+            this.labelAmount.Size = new System.Drawing.Size(37, 13);
+            this.labelAmount.TabIndex = 17;
+            this.labelAmount.Text = "Kwota";
             // 
             // textBoxBetAmount
             // 
@@ -131,46 +120,46 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // numericUpDown2
+            // numericUpDownGreyhoundForBet
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(295, 56);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numericUpDownGreyhoundForBet.Location = new System.Drawing.Point(295, 56);
+            this.numericUpDownGreyhoundForBet.Maximum = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.numericUpDownGreyhoundForBet.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDown2.TabIndex = 12;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.numericUpDownGreyhoundForBet.Name = "numericUpDownGreyhoundForBet";
+            this.numericUpDownGreyhoundForBet.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownGreyhoundForBet.TabIndex = 12;
+            this.numericUpDownGreyhoundForBet.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // label2
+            // labelGreyoundBet
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(193, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "zł na charta numer";
+            this.labelGreyoundBet.AutoSize = true;
+            this.labelGreyoundBet.Location = new System.Drawing.Point(193, 58);
+            this.labelGreyoundBet.Name = "labelGreyoundBet";
+            this.labelGreyoundBet.Size = new System.Drawing.Size(96, 13);
+            this.labelGreyoundBet.TabIndex = 11;
+            this.labelGreyoundBet.Text = "zł na charta numer";
             // 
-            // label1
+            // labelBets
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(377, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Zakłady";
+            this.labelBets.AutoSize = true;
+            this.labelBets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelBets.Location = new System.Drawing.Point(377, 16);
+            this.labelBets.Name = "labelBets";
+            this.labelBets.Size = new System.Drawing.Size(54, 13);
+            this.labelBets.TabIndex = 4;
+            this.labelBets.Text = "Zakłady";
             // 
             // minimumBetLabel
             // 
@@ -182,67 +171,89 @@
             this.minimumBetLabel.TabIndex = 0;
             this.minimumBetLabel.Text = "Minimalny zakład: 5 zł";
             // 
-            // pictureBoxRaceTrackLane
-            // 
-            this.pictureBoxRaceTrackLane.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxRaceTrackLane.Image")));
-            this.pictureBoxRaceTrackLane.Location = new System.Drawing.Point(7, 79);
-            this.pictureBoxRaceTrackLane.Name = "pictureBoxRaceTrackLane";
-            this.pictureBoxRaceTrackLane.Size = new System.Drawing.Size(594, 55);
-            this.pictureBoxRaceTrackLane.TabIndex = 9;
-            this.pictureBoxRaceTrackLane.TabStop = false;
-            // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 61);
-            this.tableLayoutPanel1.TabIndex = 10;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 60);
+            this.tableLayoutPanel1.TabIndex = 15;
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // numericUpDownNumberOfGreyhounds
+            // 
+            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(11, 370);
+            this.numericUpDownNumberOfGreyhounds.Maximum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numericUpDownNumberOfGreyhounds.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownNumberOfGreyhounds.Name = "numericUpDownNumberOfGreyhounds";
+            this.numericUpDownNumberOfGreyhounds.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownNumberOfGreyhounds.TabIndex = 13;
+            this.numericUpDownNumberOfGreyhounds.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownNumberOfGreyhounds.ValueChanged += new System.EventHandler(this.numericUpDownNumberOfGreyhounds_ValueChanged);
+            // 
+            // labelNumberOfGreyhounds
+            // 
+            this.labelNumberOfGreyhounds.AutoSize = true;
+            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(8, 354);
+            this.labelNumberOfGreyhounds.Name = "labelNumberOfGreyhounds";
+            this.labelNumberOfGreyhounds.Size = new System.Drawing.Size(70, 13);
+            this.labelNumberOfGreyhounds.TabIndex = 14;
+            this.labelNumberOfGreyhounds.Text = "Ilość chartów";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 348);
-            this.Controls.Add(this.pictureBoxGreyhound);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(613, 430);
+            this.Controls.Add(this.labelNumberOfGreyhounds);
+            this.Controls.Add(this.numericUpDownNumberOfGreyhounds);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.pictureBoxRaceTrackLane);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGreyhound)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRaceTrackLane)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfGreyhounds)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        internal System.Windows.Forms.PictureBox pictureBoxGreyhound;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDownGreyhoundForBet;
+        private System.Windows.Forms.Label labelGreyoundBet;
+        private System.Windows.Forms.Label labelBets;
         private System.Windows.Forms.Label minimumBetLabel;
-        private System.Windows.Forms.PictureBox pictureBoxRaceTrackLane;
         private System.Windows.Forms.ListBox listBoxBets;
         private System.Windows.Forms.ListBox listBoxPlayers;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonAcceptBet;
-        private System.Windows.Forms.Label Kwota;
+        private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.TextBox textBoxBetAmount;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.NumericUpDown numericUpDownNumberOfGreyhounds;
+        private System.Windows.Forms.Label labelNumberOfGreyhounds;
     }
 }
