@@ -12,26 +12,27 @@ namespace Dzień_na_wyścigach
 {
     public partial class Form2 : Form
     {
-        List<Greyhound> greyhounds;
-        Random random;
-        const int minGreyhoundMove = 5;
-        const int maxGreyhoundMove = 20;
-        readonly int greyhoundWidth;
-        readonly int racetrackLength;
+        private readonly List<Greyhound> _greyhounds;
+        private readonly Random _random;
+        private const int MIN_GREYHOUND_MOVE = 5;
+        private const int MAX_GREYHOUND_MOVE = 20;
+        private readonly int _greyhoundWidth;
+        private readonly int _racetrackLength;
 
         public Form2()
         {
             InitializeComponent();
 
-            random = new Random();
+            _random = new Random();
 
-            greyhounds = new List<Greyhound>();
+            _greyhounds = new List<Greyhound>
+            {
+                new Greyhound(pictureBoxGreyhound)
+            };
 
 
-            greyhounds.Add(new Greyhound(pictureBoxGreyhound));
-
-            greyhoundWidth = greyhounds[0].MyPictureBox.Width;
-            racetrackLength = pictureBoxRaceTrackLane.Width;
+            _greyhoundWidth = _greyhounds[0].PictureBox.Width;
+            _racetrackLength = pictureBoxRaceTrackLane.Width;
         }
 
 
@@ -42,7 +43,7 @@ namespace Dzień_na_wyścigach
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Greyhound greyhound = greyhounds[0];
+            Greyhound greyhound = _greyhounds[0];
 
             if (!CrossedTheFinishLine(greyhound))
             {
@@ -52,19 +53,16 @@ namespace Dzień_na_wyścigach
 
         private void AnimateGreyhound(Greyhound greyhound)
         {
-            int greyhoundMove = random.Next(minGreyhoundMove, maxGreyhoundMove);
+            int greyhoundMove = _random.Next(MIN_GREYHOUND_MOVE, MAX_GREYHOUND_MOVE);
 
-            Point currentLocation = greyhound.MyPictureBox.Location;
-
-            greyhound.MyPictureBox.Location = new Point(currentLocation.X + greyhoundMove, currentLocation.Y);
+            greyhound.Location = new Point(greyhound.Location.X + greyhoundMove, greyhound.Location.Y);
 
         }
 
         private bool CrossedTheFinishLine(Greyhound greyhound)
         {
-            Point currentLocation = greyhound.MyPictureBox.Location;
 
-            if (currentLocation.X + greyhoundWidth >= racetrackLength)
+            if (greyhound.Location.X + _greyhoundWidth >= _racetrackLength)
             {
                 return true;
             }

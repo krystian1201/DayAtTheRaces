@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,19 @@ namespace Dzień_na_wyścigach
     public class Greyhound
     {
         //public int StartingPosition;
-        public PictureBox MyPictureBox = null;
+        public PictureBox PictureBox;
         public Random MyRandom;
 
-        public Greyhound(PictureBox myPictureBox)
+        public Point Location
         {
-            MyPictureBox = myPictureBox;
+            get { return PictureBox.Location; }
+
+            set { PictureBox.Location = value; }
+        }
+
+        public Greyhound(PictureBox pictureBox)
+        {
+            PictureBox = pictureBox;
         }
     }
 }
