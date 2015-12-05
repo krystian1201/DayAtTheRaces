@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxBettingParlor = new System.Windows.Forms.GroupBox();
+            this.labelNumberOfGreyhounds = new System.Windows.Forms.Label();
             this.buttonAcceptBet = new System.Windows.Forms.Button();
+            this.numericUpDownNumberOfGreyhounds = new System.Windows.Forms.NumericUpDown();
             this.labelAmount = new System.Windows.Forms.Label();
             this.textBoxBetAmount = new System.Windows.Forms.TextBox();
             this.listBoxBets = new System.Windows.Forms.ListBox();
@@ -42,33 +44,47 @@
             this.minimumBetLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.numericUpDownNumberOfGreyhounds = new System.Windows.Forms.NumericUpDown();
-            this.labelNumberOfGreyhounds = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).BeginInit();
+            this.groupBoxResults = new System.Windows.Forms.GroupBox();
+            this.dataGridViewResults = new System.Windows.Forms.DataGridView();
+            this.ResultsPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultsGreyhoundColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBoxBettingParlor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfGreyhounds)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).BeginInit();
+            this.groupBoxResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxBettingParlor
             // 
-            this.groupBox1.Controls.Add(this.labelNumberOfGreyhounds);
-            this.groupBox1.Controls.Add(this.buttonAcceptBet);
-            this.groupBox1.Controls.Add(this.numericUpDownNumberOfGreyhounds);
-            this.groupBox1.Controls.Add(this.labelAmount);
-            this.groupBox1.Controls.Add(this.textBoxBetAmount);
-            this.groupBox1.Controls.Add(this.listBoxBets);
-            this.groupBox1.Controls.Add(this.listBoxPlayers);
-            this.groupBox1.Controls.Add(this.startButton);
-            this.groupBox1.Controls.Add(this.numericUpDownGreyhoundForBet);
-            this.groupBox1.Controls.Add(this.labelGreyoundBet);
-            this.groupBox1.Controls.Add(this.labelBets);
-            this.groupBox1.Controls.Add(this.minimumBetLabel);
-            this.groupBox1.Location = new System.Drawing.Point(6, 339);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 155);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dom bukmacherski";
+            this.groupBoxBettingParlor.Controls.Add(this.labelNumberOfGreyhounds);
+            this.groupBoxBettingParlor.Controls.Add(this.buttonAcceptBet);
+            this.groupBoxBettingParlor.Controls.Add(this.numericUpDownNumberOfGreyhounds);
+            this.groupBoxBettingParlor.Controls.Add(this.labelAmount);
+            this.groupBoxBettingParlor.Controls.Add(this.textBoxBetAmount);
+            this.groupBoxBettingParlor.Controls.Add(this.listBoxBets);
+            this.groupBoxBettingParlor.Controls.Add(this.listBoxPlayers);
+            this.groupBoxBettingParlor.Controls.Add(this.startButton);
+            this.groupBoxBettingParlor.Controls.Add(this.numericUpDownGreyhoundForBet);
+            this.groupBoxBettingParlor.Controls.Add(this.labelGreyoundBet);
+            this.groupBoxBettingParlor.Controls.Add(this.labelBets);
+            this.groupBoxBettingParlor.Controls.Add(this.minimumBetLabel);
+            this.groupBoxBettingParlor.Location = new System.Drawing.Point(6, 339);
+            this.groupBoxBettingParlor.Name = "groupBoxBettingParlor";
+            this.groupBoxBettingParlor.Size = new System.Drawing.Size(600, 155);
+            this.groupBoxBettingParlor.TabIndex = 6;
+            this.groupBoxBettingParlor.TabStop = false;
+            this.groupBoxBettingParlor.Text = "Dom bukmacherski";
+            // 
+            // labelNumberOfGreyhounds
+            // 
+            this.labelNumberOfGreyhounds.AutoSize = true;
+            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(9, 113);
+            this.labelNumberOfGreyhounds.Name = "labelNumberOfGreyhounds";
+            this.labelNumberOfGreyhounds.Size = new System.Drawing.Size(70, 13);
+            this.labelNumberOfGreyhounds.TabIndex = 14;
+            this.labelNumberOfGreyhounds.Text = "Ilość chartów";
             // 
             // buttonAcceptBet
             // 
@@ -78,6 +94,29 @@
             this.buttonAcceptBet.TabIndex = 18;
             this.buttonAcceptBet.Text = "Zatwierdź zakład";
             this.buttonAcceptBet.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownNumberOfGreyhounds
+            // 
+            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(12, 129);
+            this.numericUpDownNumberOfGreyhounds.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDownNumberOfGreyhounds.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownNumberOfGreyhounds.Name = "numericUpDownNumberOfGreyhounds";
+            this.numericUpDownNumberOfGreyhounds.Size = new System.Drawing.Size(42, 20);
+            this.numericUpDownNumberOfGreyhounds.TabIndex = 13;
+            this.numericUpDownNumberOfGreyhounds.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownNumberOfGreyhounds.ValueChanged += new System.EventHandler(this.numericUpDownNumberOfGreyhounds_ValueChanged);
             // 
             // labelAmount
             // 
@@ -188,59 +227,74 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // numericUpDownNumberOfGreyhounds
+            // groupBoxResults
             // 
-            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(12, 129);
-            this.numericUpDownNumberOfGreyhounds.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.numericUpDownNumberOfGreyhounds.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownNumberOfGreyhounds.Name = "numericUpDownNumberOfGreyhounds";
-            this.numericUpDownNumberOfGreyhounds.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDownNumberOfGreyhounds.TabIndex = 13;
-            this.numericUpDownNumberOfGreyhounds.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownNumberOfGreyhounds.ValueChanged += new System.EventHandler(this.numericUpDownNumberOfGreyhounds_ValueChanged);
+            this.groupBoxResults.Controls.Add(this.dataGridViewResults);
+            this.groupBoxResults.Location = new System.Drawing.Point(6, 500);
+            this.groupBoxResults.Name = "groupBoxResults";
+            this.groupBoxResults.Size = new System.Drawing.Size(600, 106);
+            this.groupBoxResults.TabIndex = 16;
+            this.groupBoxResults.TabStop = false;
+            this.groupBoxResults.Text = "Wyniki";
             // 
-            // labelNumberOfGreyhounds
+            // dataGridViewResults
             // 
-            this.labelNumberOfGreyhounds.AutoSize = true;
-            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(9, 113);
-            this.labelNumberOfGreyhounds.Name = "labelNumberOfGreyhounds";
-            this.labelNumberOfGreyhounds.Size = new System.Drawing.Size(70, 13);
-            this.labelNumberOfGreyhounds.TabIndex = 14;
-            this.labelNumberOfGreyhounds.Text = "Ilość chartów";
+            this.dataGridViewResults.AllowUserToAddRows = false;
+            this.dataGridViewResults.AllowUserToDeleteRows = false;
+            this.dataGridViewResults.AllowUserToOrderColumns = true;
+            this.dataGridViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ResultsPositionColumn,
+            this.ResultsGreyhoundColumn,
+            this.ResultsTime});
+            this.dataGridViewResults.Location = new System.Drawing.Point(129, 12);
+            this.dataGridViewResults.Name = "dataGridViewResults";
+            this.dataGridViewResults.ReadOnly = true;
+            this.dataGridViewResults.Size = new System.Drawing.Size(355, 94);
+            this.dataGridViewResults.TabIndex = 17;
+            // 
+            // ResultsPositionColumn
+            // 
+            this.ResultsPositionColumn.HeaderText = "Miejsce";
+            this.ResultsPositionColumn.Name = "ResultsPositionColumn";
+            this.ResultsPositionColumn.ReadOnly = true;
+            // 
+            // ResultsGreyhoundColumn
+            // 
+            this.ResultsGreyhoundColumn.HeaderText = "Chart";
+            this.ResultsGreyhoundColumn.Name = "ResultsGreyhoundColumn";
+            this.ResultsGreyhoundColumn.ReadOnly = true;
+            // 
+            // ResultsTime
+            // 
+            this.ResultsTime.HeaderText = "Czas";
+            this.ResultsTime.Name = "ResultsTime";
+            this.ResultsTime.ReadOnly = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(622, 506);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(618, 618);
+            this.Controls.Add(this.groupBoxResults);
+            this.Controls.Add(this.groupBoxBettingParlor);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form2";
             this.Text = "Form2";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).EndInit();
+            this.groupBoxBettingParlor.ResumeLayout(false);
+            this.groupBoxBettingParlor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfGreyhounds)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).EndInit();
+            this.groupBoxResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxBettingParlor;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.NumericUpDown numericUpDownGreyhoundForBet;
         private System.Windows.Forms.Label labelGreyoundBet;
@@ -248,12 +302,17 @@
         private System.Windows.Forms.Label minimumBetLabel;
         private System.Windows.Forms.ListBox listBoxBets;
         private System.Windows.Forms.ListBox listBoxPlayers;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonAcceptBet;
         private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.TextBox textBoxBetAmount;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown numericUpDownNumberOfGreyhounds;
         private System.Windows.Forms.Label labelNumberOfGreyhounds;
+        private System.Windows.Forms.GroupBox groupBoxResults;
+        private System.Windows.Forms.DataGridView dataGridViewResults;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResultsPositionColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResultsGreyhoundColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResultsTime;
     }
 }

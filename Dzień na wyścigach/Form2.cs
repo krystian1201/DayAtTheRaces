@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Dzień_na_wyścigach.Properties;
 
@@ -11,50 +12,79 @@ namespace Dzień_na_wyścigach
         private readonly List<Greyhound> _greyhounds;
         private readonly List<Player> _players;
          
-        private readonly Random _random;
-        
-        private int _racetrackLength;
+
+        private readonly RaceController _raceController;
+        private readonly RaceTrackDisplayController _raceTrackDisplayController;
+        private readonly GreyhoundDisplayController _greyhoundDisplayController;
 
         public Form2()
         {
             InitializeComponent();
 
-            _random = new Random();
-
             _greyhounds = new List<Greyhound>();
             _players = new List<Player>();
 
-            InitializeRaceTrack();  
+
+            _raceController = new RaceController(this, timer1, _greyhounds);
+            _raceTrackDisplayController = new RaceTrackDisplayController(this, _greyhounds);
+
+            InitializeRaceTrack();
+
+            _greyhoundDisplayController = new GreyhoundDisplayController(_greyhounds);
         }
 
         private void InitializeRaceTrack()
         {
-            AddRaceTrackLaneWithGreyhound(0);
+            _raceTrackDisplayController.AddRaceTrackLaneWithGreyhound(0);
+            _raceTrackDisplayController.AddRaceTrackLaneWithGreyhound(1);
 
-            _racetrackLength = (tableLayoutPanel1.Controls[0]).Width;
+            RaceTrack raceTrack = new RaceTrack(tableLayoutPanel1.Controls[0].Width);
         }
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            _raceController.StartTheRace();
         }
+
+
+        public void DisableControlsWhenRaceStarts()
+        {
+            startButton.Enabled = false;
+            numericUpDownNumberOfGreyhounds.Enabled = false;
+            buttonAcceptBet.Enabled = false;
+            listBoxBets.Enabled = false;
+            listBoxPlayers.Enabled = false;
+            numericUpDownGreyhoundForBet.Enabled = false;
+            textBoxBetAmount.Enabled = false;
+        }
+
+       
+        public void EnableControlsWhenRaceFinishes()
+        {
+            startButton.Enabled = true;
+            numericUpDownNumberOfGreyhounds.Enabled = true;
+            buttonAcceptBet.Enabled = true;
+            listBoxBets.Enabled = true;
+            listBoxPlayers.Enabled = true;
+            numericUpDownGreyhoundForBet.Enabled = true;
+            textBoxBetAmount.Enabled = true;
+        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             foreach (var greyhound in _greyhounds)
             {
-                if (!greyhound.CrossedTheFinishLine(_racetrackLength))
+                if (!greyhound.CrossedTheFinishLine(RaceTrack.Length))
                 {
-                    AnimateGreyhound(greyhound);
+                    _greyhoundDisplayController.AnimateGreyhound(greyhound);
+                }
+
+                if(_greyhoundDisplayController.AllGreyhoundsCrossedTheFinishLine())
+                {
+                    _raceController.StopTheRace();
                 }
             }  
-        }
-
-        private void AnimateGreyhound(Greyhound greyhound)
-        {
-            int greyhoundMove = _random.Next(Greyhound.MIN_MOVE, Greyhound.MAX_MOVE);
-
-            greyhound.Location = new Point(greyhound.Location.X + greyhoundMove, greyhound.Location.Y);
         }
 
 
@@ -65,58 +95,26 @@ namespace Dzień_na_wyścigach
             //probably this condition is unnecessary
             if (control.Value >= control.Minimum && control.Value <= control.Maximum)
             {
-                RemoveAllRaceTrackLanes();
+                _raceTrackDisplayController.RemoveAllRaceTrackLanes();
 
                 for (int i = 0; i < control.Value; i++)
                 {
-                    AddRaceTrackLaneWithGreyhound((int)control.Value);
+                    _raceTrackDisplayController.AddRaceTrackLaneWithGreyhound((int)control.Value);
                 }
             }
         }
 
-        private void RemoveAllRaceTrackLanes()
+        public void DisplayRaceResults()
         {
-            this.tableLayoutPanel1.Controls.Clear();
-        }
+            dataGridViewResults.Rows.Clear();
 
-        private void AddRaceTrackLaneWithGreyhound(int greyhoundNumber)
-        {
-            Panel panel = new Panel {Size = new Size(600, 60)};
-
-            AddRaceTrackLane(panel);
-            AddGreyhoundToRaceTrack(panel, greyhoundNumber);
-
-            panel.Dock = DockStyle.Fill;
-            this.tableLayoutPanel1.Controls.Add(panel);
-        }
-
-        private void AddRaceTrackLane(Panel panel)
-        {
-            PictureBox pictureBoxTrackLane = new PictureBox
+            foreach (var greyhound in _greyhounds)
             {
-                Image = Resources.racetrack_lane,
-                Dock = Dock = DockStyle.Fill
-            };
+                string[] greyhoundResults = 
+                    {greyhound.PositionInLastRace.ToString(), greyhound.Number.ToString(), greyhound.TimeInLastRace.Seconds.ToString()};
 
-            panel.Controls.Add(pictureBoxTrackLane);
-        }
-
-
-        private void AddGreyhoundToRaceTrack(Panel panel, int greyhoundNumber)
-        {
-            PictureBox pictureBoxGreyhound = new PictureBox
-            {
-                Image = Resources.dog,
-                SizeMode = PictureBoxSizeMode.AutoSize,
-                Location = new Point(0, 30)
-            };
-
-
-            panel.Controls.Add(pictureBoxGreyhound);
-
-            panel.Controls[1].BringToFront();
-
-            _greyhounds.Add(new Greyhound(pictureBoxGreyhound, greyhoundNumber));
+                dataGridViewResults.Rows.Add(greyhoundResults);
+            } 
         }  
     }
 }

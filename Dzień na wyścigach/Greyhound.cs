@@ -10,31 +10,37 @@ namespace Dzień_na_wyścigach
 {
     public class Greyhound
     {
-        public const int MIN_MOVE = 5;
-        public const int MAX_MOVE = 20;
+        public const int MIN_MOVE = 10;
+        public const int MAX_MOVE = 40;
         public const int WIDTH = 74;
+        public const int Y_OFFSET = 30;
 
-        public PictureBox PictureBox;
+        private PictureBox _pictureBox { get; }
+
+        public int PositionInLastRace { get; set; }
+
+        public TimeSpan TimeInLastRace { get; set; }
+
         public Random MyRandom;
 
         public Point Location
         {
-            get { return PictureBox.Location; }
+            get { return _pictureBox.Location; }
 
-            set { PictureBox.Location = value; }
+            set { _pictureBox.Location = value; }
         }
 
         public int Number { get; private set; }
 
+
         public Greyhound(PictureBox pictureBox, int number)
         {
-            PictureBox = pictureBox;
+            _pictureBox = pictureBox;
             Number = number;
         }
 
         public bool CrossedTheFinishLine(int racetrackLength)
         {
-
             if (Location.X + WIDTH >= racetrackLength)
             {
                 return true;
