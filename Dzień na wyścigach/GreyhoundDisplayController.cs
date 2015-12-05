@@ -18,10 +18,7 @@ namespace Dzień_na_wyścigach
             _random = new Random();
         }
 
-        public bool AllGreyhoundsCrossedTheFinishLine()
-        {
-            return _greyhounds.All(greyhound => greyhound.CrossedTheFinishLine(RaceTrack.Length));
-        }
+        
 
         public void AnimateGreyhound(Greyhound greyhound)
         {

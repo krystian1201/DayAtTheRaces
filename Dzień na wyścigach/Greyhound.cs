@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Dzień_na_wyścigach
 {
     public class Greyhound
     {
-        public const int MIN_MOVE = 10;
-        public const int MAX_MOVE = 40;
+        public const int MIN_MOVE = 2;
+        public const int MAX_MOVE = 30;
         public const int WIDTH = 74;
         public const int Y_OFFSET = 30;
 
         private PictureBox _pictureBox { get; }
 
-        public int PositionInLastRace { get; set; }
+        public int PositionInRace { get; set; }
 
-        public TimeSpan TimeInLastRace { get; set; }
+        public TimeSpan TimeInRace { get; set; }
 
-        public Random MyRandom;
+        public bool FinishedRace { get; private set; }
 
         public Point Location
         {
@@ -37,6 +33,7 @@ namespace Dzień_na_wyścigach
         {
             _pictureBox = pictureBox;
             Number = number;
+            FinishedRace = false;
         }
 
         public bool CrossedTheFinishLine(int racetrackLength)
@@ -49,5 +46,24 @@ namespace Dzień_na_wyścigach
             return false;
         }
 
+        //necessary?
+        public void OnRaceStart()
+        {
+            PositionInRace = -1;
+            TimeInRace = TimeSpan.MaxValue;
+            FinishedRace = false;
+        }
+
+        public void OnRaceFinish(int currentFinishingPosition, double finishingTime)
+        {
+            PositionInRace = currentFinishingPosition;
+
+            int wholeSeconds = (int) finishingTime;
+            int miliseconds = (int)((finishingTime - wholeSeconds) * 1000);
+
+            TimeInRace = new TimeSpan(0, 0, 0, wholeSeconds, miliseconds);
+
+            FinishedRace = true;
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace Dzień_na_wyścigach
         public void RemoveAllRaceTrackLanes()
         {
             _form.tableLayoutPanel1.Controls.Clear();
+            _greyhounds.Clear();
         }
 
         public void AddRaceTrackLaneWithGreyhound(int greyhoundNumber)

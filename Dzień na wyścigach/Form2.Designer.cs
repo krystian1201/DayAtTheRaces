@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBoxBettingParlor = new System.Windows.Forms.GroupBox();
             this.labelNumberOfGreyhounds = new System.Windows.Forms.Label();
             this.buttonAcceptBet = new System.Windows.Forms.Button();
@@ -43,8 +42,8 @@
             this.labelBets = new System.Windows.Forms.Label();
             this.minimumBetLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBoxResults = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewResults = new System.Windows.Forms.DataGridView();
             this.ResultsPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ResultsGreyhoundColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -223,19 +222,25 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 60);
             this.tableLayoutPanel1.TabIndex = 15;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // groupBoxResults
             // 
+            this.groupBoxResults.Controls.Add(this.button1);
             this.groupBoxResults.Controls.Add(this.dataGridViewResults);
             this.groupBoxResults.Location = new System.Drawing.Point(6, 500);
             this.groupBoxResults.Name = "groupBoxResults";
-            this.groupBoxResults.Size = new System.Drawing.Size(600, 106);
+            this.groupBoxResults.Size = new System.Drawing.Size(600, 136);
             this.groupBoxResults.TabIndex = 16;
             this.groupBoxResults.TabStop = false;
             this.groupBoxResults.Text = "Wyniki";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(500, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewResults
             // 
@@ -247,10 +252,10 @@
             this.ResultsPositionColumn,
             this.ResultsGreyhoundColumn,
             this.ResultsTime});
-            this.dataGridViewResults.Location = new System.Drawing.Point(129, 12);
+            this.dataGridViewResults.Location = new System.Drawing.Point(109, 12);
             this.dataGridViewResults.Name = "dataGridViewResults";
             this.dataGridViewResults.ReadOnly = true;
-            this.dataGridViewResults.Size = new System.Drawing.Size(355, 94);
+            this.dataGridViewResults.Size = new System.Drawing.Size(365, 118);
             this.dataGridViewResults.TabIndex = 17;
             // 
             // ResultsPositionColumn
@@ -276,7 +281,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(618, 618);
+            this.ClientSize = new System.Drawing.Size(618, 648);
             this.Controls.Add(this.groupBoxResults);
             this.Controls.Add(this.groupBoxBettingParlor);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -306,7 +311,7 @@
         private System.Windows.Forms.Button buttonAcceptBet;
         private System.Windows.Forms.Label labelAmount;
         private System.Windows.Forms.TextBox textBoxBetAmount;
-        private System.Windows.Forms.Timer timer1;
+        //private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown numericUpDownNumberOfGreyhounds;
         private System.Windows.Forms.Label labelNumberOfGreyhounds;
         private System.Windows.Forms.GroupBox groupBoxResults;
@@ -314,5 +319,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsPositionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsGreyhoundColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsTime;
+        private System.Windows.Forms.Button button1;
     }
 }
