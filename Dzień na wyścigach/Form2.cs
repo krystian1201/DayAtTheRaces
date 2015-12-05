@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dzień_na_wyścigach.Properties;
 
@@ -27,19 +22,17 @@ namespace Dzień_na_wyścigach
             _random = new Random();
 
             _greyhounds = new List<Greyhound>();
-
-            int greyhoundNumber = _greyhounds.Count;
-
-            //_greyhounds.Add(new Greyhound(new PictureBox(Resources.dog), greyhoundNumber));
-
-
             _players = new List<Player>();
 
-            InitializeRaceTrack();
-
-           
+            InitializeRaceTrack();  
         }
 
+        private void InitializeRaceTrack()
+        {
+            AddRaceTrackLaneWithGreyhound(0);
+
+            _racetrackLength = (tableLayoutPanel1.Controls[0]).Width;
+        }
 
         private void startButton_Click(object sender, EventArgs e)
         {
@@ -48,11 +41,12 @@ namespace Dzień_na_wyścigach
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Greyhound greyhound = _greyhounds[0];
-
-            if (!CrossedTheFinishLine(greyhound))
+            foreach (var greyhound in _greyhounds)
             {
-                AnimateGreyhound(greyhound);
+                if (!greyhound.CrossedTheFinishLine(_racetrackLength))
+                {
+                    AnimateGreyhound(greyhound);
+                }
             }  
         }
 
@@ -61,38 +55,68 @@ namespace Dzień_na_wyścigach
             int greyhoundMove = _random.Next(Greyhound.MIN_MOVE, Greyhound.MAX_MOVE);
 
             greyhound.Location = new Point(greyhound.Location.X + greyhoundMove, greyhound.Location.Y);
-
         }
 
-        private bool CrossedTheFinishLine(Greyhound greyhound)
-        {
-
-            if (greyhound.Location.X + Greyhound.WIDTH >= _racetrackLength)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private void InitializeRaceTrack()
-        {
-            AddRaceTrackLane();
-
-            _racetrackLength = (tableLayoutPanel1.Controls[0]).Width;
-        }
 
         private void numericUpDownNumberOfGreyhounds_ValueChanged(object sender, EventArgs e)
         {
-            AddRaceTrackLane();
+            NumericUpDown control = (NumericUpDown)sender;
+
+            //probably this condition is unnecessary
+            if (control.Value >= control.Minimum && control.Value <= control.Maximum)
+            {
+                RemoveAllRaceTrackLanes();
+
+                for (int i = 0; i < control.Value; i++)
+                {
+                    AddRaceTrackLaneWithGreyhound((int)control.Value);
+                }
+            }
         }
 
-        private void AddRaceTrackLane()
+        private void RemoveAllRaceTrackLanes()
         {
-            PictureBox pictureBoxTrackLane = new PictureBox { Image = Resources.racetrack_lane };
-            pictureBoxTrackLane.Dock = Dock = DockStyle.Fill;
-
-            this.tableLayoutPanel1.Controls.Add(pictureBoxTrackLane);
+            this.tableLayoutPanel1.Controls.Clear();
         }
+
+        private void AddRaceTrackLaneWithGreyhound(int greyhoundNumber)
+        {
+            Panel panel = new Panel {Size = new Size(600, 60)};
+
+            AddRaceTrackLane(panel);
+            AddGreyhoundToRaceTrack(panel, greyhoundNumber);
+
+            panel.Dock = DockStyle.Fill;
+            this.tableLayoutPanel1.Controls.Add(panel);
+        }
+
+        private void AddRaceTrackLane(Panel panel)
+        {
+            PictureBox pictureBoxTrackLane = new PictureBox
+            {
+                Image = Resources.racetrack_lane,
+                Dock = Dock = DockStyle.Fill
+            };
+
+            panel.Controls.Add(pictureBoxTrackLane);
+        }
+
+
+        private void AddGreyhoundToRaceTrack(Panel panel, int greyhoundNumber)
+        {
+            PictureBox pictureBoxGreyhound = new PictureBox
+            {
+                Image = Resources.dog,
+                SizeMode = PictureBoxSizeMode.AutoSize,
+                Location = new Point(0, 30)
+            };
+
+
+            panel.Controls.Add(pictureBoxGreyhound);
+
+            panel.Controls[1].BringToFront();
+
+            _greyhounds.Add(new Greyhound(pictureBoxGreyhound, greyhoundNumber));
+        }  
     }
 }

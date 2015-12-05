@@ -51,7 +51,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelNumberOfGreyhounds);
             this.groupBox1.Controls.Add(this.buttonAcceptBet);
+            this.groupBox1.Controls.Add(this.numericUpDownNumberOfGreyhounds);
             this.groupBox1.Controls.Add(this.labelAmount);
             this.groupBox1.Controls.Add(this.textBoxBetAmount);
             this.groupBox1.Controls.Add(this.listBoxBets);
@@ -61,9 +63,9 @@
             this.groupBox1.Controls.Add(this.labelGreyoundBet);
             this.groupBox1.Controls.Add(this.labelBets);
             this.groupBox1.Controls.Add(this.minimumBetLabel);
-            this.groupBox1.Location = new System.Drawing.Point(6, 225);
+            this.groupBox1.Location = new System.Drawing.Point(6, 339);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 116);
+            this.groupBox1.Size = new System.Drawing.Size(600, 155);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dom bukmacherski";
@@ -112,7 +114,7 @@
             // startButton
             // 
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.startButton.Location = new System.Drawing.Point(490, 37);
+            this.startButton.Location = new System.Drawing.Point(489, 37);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(104, 69);
             this.startButton.TabIndex = 13;
@@ -188,9 +190,9 @@
             // 
             // numericUpDownNumberOfGreyhounds
             // 
-            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(11, 370);
+            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(12, 129);
             this.numericUpDownNumberOfGreyhounds.Maximum = new decimal(new int[] {
-            3,
+            5,
             0,
             0,
             0});
@@ -212,7 +214,7 @@
             // labelNumberOfGreyhounds
             // 
             this.labelNumberOfGreyhounds.AutoSize = true;
-            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(8, 354);
+            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(9, 113);
             this.labelNumberOfGreyhounds.Name = "labelNumberOfGreyhounds";
             this.labelNumberOfGreyhounds.Size = new System.Drawing.Size(70, 13);
             this.labelNumberOfGreyhounds.TabIndex = 14;
@@ -223,9 +225,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(613, 430);
-            this.Controls.Add(this.labelNumberOfGreyhounds);
-            this.Controls.Add(this.numericUpDownNumberOfGreyhounds);
+            this.ClientSize = new System.Drawing.Size(622, 506);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form2";

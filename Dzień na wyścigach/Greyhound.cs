@@ -32,5 +32,16 @@ namespace Dzień_na_wyścigach
             Number = number;
         }
 
+        public bool CrossedTheFinishLine(int racetrackLength)
+        {
+
+            if (Location.X + WIDTH >= racetrackLength)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
