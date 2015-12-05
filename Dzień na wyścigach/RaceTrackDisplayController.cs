@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Dzień_na_wyścigach.Properties;
 
 namespace Dzień_na_wyścigach
@@ -31,6 +32,8 @@ namespace Dzień_na_wyścigach
 
             panel.Dock = DockStyle.Fill;
             _form.tableLayoutPanel1.Controls.Add(panel);
+
+            _form.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
         }
 
         public void AddRaceTrackLane(Panel panel)
@@ -57,6 +60,8 @@ namespace Dzień_na_wyścigach
             panel.Controls.Add(pictureBoxGreyhound);
 
             panel.Controls[1].BringToFront();
+
+            panel.Margin = new Padding(1);
 
             _greyhounds.Add(new Greyhound(pictureBoxGreyhound, greyhoundNumber));
         }

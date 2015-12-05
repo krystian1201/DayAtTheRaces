@@ -32,46 +32,42 @@
             this.labelNumberOfGreyhounds = new System.Windows.Forms.Label();
             this.buttonAcceptBet = new System.Windows.Forms.Button();
             this.numericUpDownNumberOfGreyhounds = new System.Windows.Forms.NumericUpDown();
-            this.labelAmount = new System.Windows.Forms.Label();
-            this.textBoxBetAmount = new System.Windows.Forms.TextBox();
-            this.listBoxBets = new System.Windows.Forms.ListBox();
-            this.listBoxPlayers = new System.Windows.Forms.ListBox();
-            this.startButton = new System.Windows.Forms.Button();
-            this.numericUpDownGreyhoundForBet = new System.Windows.Forms.NumericUpDown();
-            this.labelGreyoundBet = new System.Windows.Forms.Label();
+            this.buttonStart = new System.Windows.Forms.Button();
             this.labelBets = new System.Windows.Forms.Label();
-            this.minimumBetLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBoxResults = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewResults = new System.Windows.Forms.DataGridView();
             this.ResultsPositionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ResultsGreyhoundColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ResultsTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewPlayers = new System.Windows.Forms.DataGridView();
+            this.labelPlayers = new System.Windows.Forms.Label();
+            this.dataGridViewBets = new System.Windows.Forms.DataGridView();
+            this.buttonAddPlayer = new System.Windows.Forms.Button();
+            this.PlayerNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlayerMoneyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BetPlayerColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BetGreyhoundColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BetAmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxBettingParlor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfGreyhounds)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).BeginInit();
             this.groupBoxResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBets)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxBettingParlor
             // 
-            this.groupBoxBettingParlor.Controls.Add(this.labelNumberOfGreyhounds);
+            this.groupBoxBettingParlor.Controls.Add(this.buttonAddPlayer);
+            this.groupBoxBettingParlor.Controls.Add(this.dataGridViewBets);
+            this.groupBoxBettingParlor.Controls.Add(this.labelPlayers);
+            this.groupBoxBettingParlor.Controls.Add(this.dataGridViewPlayers);
             this.groupBoxBettingParlor.Controls.Add(this.buttonAcceptBet);
-            this.groupBoxBettingParlor.Controls.Add(this.numericUpDownNumberOfGreyhounds);
-            this.groupBoxBettingParlor.Controls.Add(this.labelAmount);
-            this.groupBoxBettingParlor.Controls.Add(this.textBoxBetAmount);
-            this.groupBoxBettingParlor.Controls.Add(this.listBoxBets);
-            this.groupBoxBettingParlor.Controls.Add(this.listBoxPlayers);
-            this.groupBoxBettingParlor.Controls.Add(this.startButton);
-            this.groupBoxBettingParlor.Controls.Add(this.numericUpDownGreyhoundForBet);
-            this.groupBoxBettingParlor.Controls.Add(this.labelGreyoundBet);
             this.groupBoxBettingParlor.Controls.Add(this.labelBets);
-            this.groupBoxBettingParlor.Controls.Add(this.minimumBetLabel);
-            this.groupBoxBettingParlor.Location = new System.Drawing.Point(6, 339);
+            this.groupBoxBettingParlor.Location = new System.Drawing.Point(6, 325);
             this.groupBoxBettingParlor.Name = "groupBoxBettingParlor";
-            this.groupBoxBettingParlor.Size = new System.Drawing.Size(600, 155);
+            this.groupBoxBettingParlor.Size = new System.Drawing.Size(736, 155);
             this.groupBoxBettingParlor.TabIndex = 6;
             this.groupBoxBettingParlor.TabStop = false;
             this.groupBoxBettingParlor.Text = "Dom bukmacherski";
@@ -79,7 +75,7 @@
             // labelNumberOfGreyhounds
             // 
             this.labelNumberOfGreyhounds.AutoSize = true;
-            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(9, 113);
+            this.labelNumberOfGreyhounds.Location = new System.Drawing.Point(502, 557);
             this.labelNumberOfGreyhounds.Name = "labelNumberOfGreyhounds";
             this.labelNumberOfGreyhounds.Size = new System.Drawing.Size(70, 13);
             this.labelNumberOfGreyhounds.TabIndex = 14;
@@ -87,16 +83,16 @@
             // 
             // buttonAcceptBet
             // 
-            this.buttonAcceptBet.Location = new System.Drawing.Point(133, 82);
+            this.buttonAcceptBet.Location = new System.Drawing.Point(637, 38);
             this.buttonAcceptBet.Name = "buttonAcceptBet";
-            this.buttonAcceptBet.Size = new System.Drawing.Size(204, 23);
+            this.buttonAcceptBet.Size = new System.Drawing.Size(83, 105);
             this.buttonAcceptBet.TabIndex = 18;
             this.buttonAcceptBet.Text = "Zatwierdź zakład";
             this.buttonAcceptBet.UseVisualStyleBackColor = true;
             // 
             // numericUpDownNumberOfGreyhounds
             // 
-            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(12, 129);
+            this.numericUpDownNumberOfGreyhounds.Location = new System.Drawing.Point(515, 573);
             this.numericUpDownNumberOfGreyhounds.Maximum = new decimal(new int[] {
             5,
             0,
@@ -117,99 +113,26 @@
             0});
             this.numericUpDownNumberOfGreyhounds.ValueChanged += new System.EventHandler(this.numericUpDownNumberOfGreyhounds_ValueChanged);
             // 
-            // labelAmount
+            // buttonStart
             // 
-            this.labelAmount.AutoSize = true;
-            this.labelAmount.Location = new System.Drawing.Point(130, 39);
-            this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(37, 13);
-            this.labelAmount.TabIndex = 17;
-            this.labelAmount.Text = "Kwota";
-            // 
-            // textBoxBetAmount
-            // 
-            this.textBoxBetAmount.Location = new System.Drawing.Point(133, 55);
-            this.textBoxBetAmount.Name = "textBoxBetAmount";
-            this.textBoxBetAmount.Size = new System.Drawing.Size(54, 20);
-            this.textBoxBetAmount.TabIndex = 16;
-            // 
-            // listBoxBets
-            // 
-            this.listBoxBets.FormattingEnabled = true;
-            this.listBoxBets.Location = new System.Drawing.Point(345, 39);
-            this.listBoxBets.Name = "listBoxBets";
-            this.listBoxBets.Size = new System.Drawing.Size(139, 69);
-            this.listBoxBets.TabIndex = 15;
-            // 
-            // listBoxPlayers
-            // 
-            this.listBoxPlayers.FormattingEnabled = true;
-            this.listBoxPlayers.Location = new System.Drawing.Point(12, 37);
-            this.listBoxPlayers.Name = "listBoxPlayers";
-            this.listBoxPlayers.Size = new System.Drawing.Size(106, 69);
-            this.listBoxPlayers.TabIndex = 14;
-            // 
-            // startButton
-            // 
-            this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.startButton.Location = new System.Drawing.Point(489, 37);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(104, 69);
-            this.startButton.TabIndex = 13;
-            this.startButton.Text = "Start!";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
-            // numericUpDownGreyhoundForBet
-            // 
-            this.numericUpDownGreyhoundForBet.Location = new System.Drawing.Point(295, 56);
-            this.numericUpDownGreyhoundForBet.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDownGreyhoundForBet.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownGreyhoundForBet.Name = "numericUpDownGreyhoundForBet";
-            this.numericUpDownGreyhoundForBet.Size = new System.Drawing.Size(42, 20);
-            this.numericUpDownGreyhoundForBet.TabIndex = 12;
-            this.numericUpDownGreyhoundForBet.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // labelGreyoundBet
-            // 
-            this.labelGreyoundBet.AutoSize = true;
-            this.labelGreyoundBet.Location = new System.Drawing.Point(193, 58);
-            this.labelGreyoundBet.Name = "labelGreyoundBet";
-            this.labelGreyoundBet.Size = new System.Drawing.Size(96, 13);
-            this.labelGreyoundBet.TabIndex = 11;
-            this.labelGreyoundBet.Text = "zł na charta numer";
+            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonStart.Location = new System.Drawing.Point(622, 546);
+            this.buttonStart.Name = "buttonStart";
+            this.buttonStart.Size = new System.Drawing.Size(104, 69);
+            this.buttonStart.TabIndex = 13;
+            this.buttonStart.Text = "Start!";
+            this.buttonStart.UseVisualStyleBackColor = true;
+            this.buttonStart.Click += new System.EventHandler(this.startButton_Click);
             // 
             // labelBets
             // 
             this.labelBets.AutoSize = true;
             this.labelBets.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelBets.Location = new System.Drawing.Point(377, 16);
+            this.labelBets.Location = new System.Drawing.Point(356, 16);
             this.labelBets.Name = "labelBets";
             this.labelBets.Size = new System.Drawing.Size(54, 13);
             this.labelBets.TabIndex = 4;
             this.labelBets.Text = "Zakłady";
-            // 
-            // minimumBetLabel
-            // 
-            this.minimumBetLabel.AutoSize = true;
-            this.minimumBetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.minimumBetLabel.Location = new System.Drawing.Point(9, 20);
-            this.minimumBetLabel.Name = "minimumBetLabel";
-            this.minimumBetLabel.Size = new System.Drawing.Size(135, 13);
-            this.minimumBetLabel.TabIndex = 0;
-            this.minimumBetLabel.Text = "Minimalny zakład: 5 zł";
             // 
             // tableLayoutPanel1
             // 
@@ -224,23 +147,13 @@
             // 
             // groupBoxResults
             // 
-            this.groupBoxResults.Controls.Add(this.button1);
             this.groupBoxResults.Controls.Add(this.dataGridViewResults);
-            this.groupBoxResults.Location = new System.Drawing.Point(6, 500);
+            this.groupBoxResults.Location = new System.Drawing.Point(6, 486);
             this.groupBoxResults.Name = "groupBoxResults";
-            this.groupBoxResults.Size = new System.Drawing.Size(600, 136);
+            this.groupBoxResults.Size = new System.Drawing.Size(480, 177);
             this.groupBoxResults.TabIndex = 16;
             this.groupBoxResults.TabStop = false;
             this.groupBoxResults.Text = "Wyniki";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(500, 39);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // dataGridViewResults
             // 
@@ -252,10 +165,10 @@
             this.ResultsPositionColumn,
             this.ResultsGreyhoundColumn,
             this.ResultsTime});
-            this.dataGridViewResults.Location = new System.Drawing.Point(109, 12);
+            this.dataGridViewResults.Location = new System.Drawing.Point(26, 20);
             this.dataGridViewResults.Name = "dataGridViewResults";
             this.dataGridViewResults.ReadOnly = true;
-            this.dataGridViewResults.Size = new System.Drawing.Size(365, 118);
+            this.dataGridViewResults.Size = new System.Drawing.Size(355, 138);
             this.dataGridViewResults.TabIndex = 17;
             // 
             // ResultsPositionColumn
@@ -276,23 +189,101 @@
             this.ResultsTime.Name = "ResultsTime";
             this.ResultsTime.ReadOnly = true;
             // 
+            // dataGridViewPlayers
+            // 
+            this.dataGridViewPlayers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPlayers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PlayerNameColumn,
+            this.PlayerMoneyColumn});
+            this.dataGridViewPlayers.Location = new System.Drawing.Point(26, 36);
+            this.dataGridViewPlayers.Name = "dataGridViewPlayers";
+            this.dataGridViewPlayers.Size = new System.Drawing.Size(213, 107);
+            this.dataGridViewPlayers.TabIndex = 19;
+            // 
+            // labelPlayers
+            // 
+            this.labelPlayers.AutoSize = true;
+            this.labelPlayers.Location = new System.Drawing.Point(23, 20);
+            this.labelPlayers.Name = "labelPlayers";
+            this.labelPlayers.Size = new System.Drawing.Size(41, 13);
+            this.labelPlayers.TabIndex = 20;
+            this.labelPlayers.Text = "Gracze";
+            // 
+            // dataGridViewBets
+            // 
+            this.dataGridViewBets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.BetPlayerColumn,
+            this.BetGreyhoundColumn,
+            this.BetAmountColumn});
+            this.dataGridViewBets.Location = new System.Drawing.Point(359, 38);
+            this.dataGridViewBets.Name = "dataGridViewBets";
+            this.dataGridViewBets.Size = new System.Drawing.Size(272, 107);
+            this.dataGridViewBets.TabIndex = 21;
+            // 
+            // buttonAddPlayer
+            // 
+            this.buttonAddPlayer.Location = new System.Drawing.Point(245, 38);
+            this.buttonAddPlayer.Name = "buttonAddPlayer";
+            this.buttonAddPlayer.Size = new System.Drawing.Size(75, 105);
+            this.buttonAddPlayer.TabIndex = 22;
+            this.buttonAddPlayer.Text = "Dodaj gracza";
+            this.buttonAddPlayer.UseVisualStyleBackColor = true;
+            this.buttonAddPlayer.Click += new System.EventHandler(this.buttonAddPlayer_Click);
+            // 
+            // PlayerNameColumn
+            // 
+            this.PlayerNameColumn.HeaderText = "Imię";
+            this.PlayerNameColumn.Name = "PlayerNameColumn";
+            // 
+            // PlayerMoneyColumn
+            // 
+            this.PlayerMoneyColumn.HeaderText = "Kasa";
+            this.PlayerMoneyColumn.Name = "PlayerMoneyColumn";
+            this.PlayerMoneyColumn.Width = 60;
+            // 
+            // BetPlayerColumn
+            // 
+            this.BetPlayerColumn.HeaderText = "Gracz";
+            this.BetPlayerColumn.Name = "BetPlayerColumn";
+            this.BetPlayerColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BetPlayerColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // BetGreyhoundColumn
+            // 
+            this.BetGreyhoundColumn.HeaderText = "Chart";
+            this.BetGreyhoundColumn.Name = "BetGreyhoundColumn";
+            this.BetGreyhoundColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.BetGreyhoundColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.BetGreyhoundColumn.Width = 50;
+            // 
+            // BetAmountColumn
+            // 
+            this.BetAmountColumn.HeaderText = "Kasa";
+            this.BetAmountColumn.Name = "BetAmountColumn";
+            this.BetAmountColumn.Width = 60;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(618, 648);
+            this.ClientSize = new System.Drawing.Size(760, 675);
             this.Controls.Add(this.groupBoxResults);
             this.Controls.Add(this.groupBoxBettingParlor);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.numericUpDownNumberOfGreyhounds);
+            this.Controls.Add(this.labelNumberOfGreyhounds);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Symulator Wyścigów";
             this.groupBoxBettingParlor.ResumeLayout(false);
             this.groupBoxBettingParlor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberOfGreyhounds)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreyhoundForBet)).EndInit();
             this.groupBoxResults.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlayers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,17 +291,10 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBoxBettingParlor;
-        private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.NumericUpDown numericUpDownGreyhoundForBet;
-        private System.Windows.Forms.Label labelGreyoundBet;
+        private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Label labelBets;
-        private System.Windows.Forms.Label minimumBetLabel;
-        private System.Windows.Forms.ListBox listBoxBets;
-        private System.Windows.Forms.ListBox listBoxPlayers;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonAcceptBet;
-        private System.Windows.Forms.Label labelAmount;
-        private System.Windows.Forms.TextBox textBoxBetAmount;
         //private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown numericUpDownNumberOfGreyhounds;
         private System.Windows.Forms.Label labelNumberOfGreyhounds;
@@ -319,6 +303,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsPositionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsGreyhoundColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsTime;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelPlayers;
+        private System.Windows.Forms.DataGridView dataGridViewPlayers;
+        private System.Windows.Forms.DataGridView dataGridViewBets;
+        private System.Windows.Forms.Button buttonAddPlayer;
+        private System.Windows.Forms.DataGridViewComboBoxColumn BetPlayerColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn BetGreyhoundColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BetAmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlayerNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PlayerMoneyColumn;
     }
 }

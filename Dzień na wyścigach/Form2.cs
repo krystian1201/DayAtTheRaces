@@ -54,31 +54,27 @@ namespace Dzień_na_wyścigach
         private void startButton_Click(object sender, EventArgs e)
         {
             _raceController.StartTheRace();
-
             _ticks = 0;
         }
 
-
         public void DisableControlsWhenRaceStarts()
         {
-            startButton.Enabled = false;
+            buttonStart.Enabled = false;
             numericUpDownNumberOfGreyhounds.Enabled = false;
             buttonAcceptBet.Enabled = false;
-            listBoxBets.Enabled = false;
-            listBoxPlayers.Enabled = false;
-            numericUpDownGreyhoundForBet.Enabled = false;
-            textBoxBetAmount.Enabled = false;
+            dataGridViewBets.Enabled = false;
+            dataGridViewPlayers.Enabled = false;
+            buttonAddPlayer.Enabled = false;
         }
 
         public void EnableControlsWhenRaceFinishes()
         {
-            startButton.Enabled = true;
+            buttonStart.Enabled = true;
             numericUpDownNumberOfGreyhounds.Enabled = true;
             buttonAcceptBet.Enabled = true;
-            listBoxBets.Enabled = true;
-            listBoxPlayers.Enabled = true;
-            numericUpDownGreyhoundForBet.Enabled = true;
-            textBoxBetAmount.Enabled = true;
+            dataGridViewBets.Enabled = true;
+            dataGridViewPlayers.Enabled = true;
+            buttonAddPlayer.Enabled = true;
         }
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
@@ -142,41 +138,9 @@ namespace Dzień_na_wyścigach
             } 
         }
 
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    OnTimerTick();
-        //}
-
-        //private void OnTimerTick()
-        //{
-        //    _ticks++;
-
-        //    foreach (var greyhound in _greyhounds)
-        //    {
-
-        //        if (!_raceController.IsRaceStopped && _raceController.AllGreyhoundsCrossedTheFinishLine())
-        //        {
-        //            _raceController.StopTheRace();
-        //        }
-
-
-        //        if (!greyhound.CrossedTheFinishLine(RaceTrack.Length))
-        //        {
-        //            _greyhoundDisplayController.AnimateGreyhound(greyhound);
-        //        }
-
-        //        if (!_raceController.IsRaceStopped && greyhound.CrossedTheFinishLine(RaceTrack.Length)
-        //            && !greyhound.FinishedRace)
-        //        {
-        //            double finishingTime = _ticks * (_timer.Interval / 1000.0);
-
-        //            greyhound.OnRaceFinish(CurrentFinishingPosition, finishingTime);
-
-        //            //_raceController.IncrementCurrentFinishingPosition();
-        //            CurrentFinishingPosition++;
-        //        }
-        //    }
-        //}
+        private void buttonAddPlayer_Click(object sender, EventArgs e)
+        {
+            Player player = new Player();
+        }
     }
 }

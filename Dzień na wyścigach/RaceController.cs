@@ -41,12 +41,12 @@ namespace Dzień_na_wyścigach
 
         public void StopTheRace()
         {
-            _form.EnableControlsWhenRaceFinishes();
-            IsRaceStopped = true;
             _timer.Stop();
 
-            _form.DisplayRaceResults();
+            _form.EnableControlsWhenRaceFinishes();
+            IsRaceStopped = true;
             
+            _form.DisplayRaceResults();          
         }
 
         public void ResetGreyhoundsLocations()

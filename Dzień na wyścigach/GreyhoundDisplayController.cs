@@ -9,16 +9,15 @@ namespace Dzień_na_wyścigach
 {
     public class GreyhoundDisplayController
     {
-        private readonly List<Greyhound> _greyhounds;
+        //private readonly List<Greyhound> _greyhounds;
         private readonly Random _random;
 
         public GreyhoundDisplayController(List<Greyhound> greyhounds)
         {
-            _greyhounds = greyhounds;
+            //_greyhounds = greyhounds;
             _random = new Random();
         }
 
-        
 
         public void AnimateGreyhound(Greyhound greyhound)
         {

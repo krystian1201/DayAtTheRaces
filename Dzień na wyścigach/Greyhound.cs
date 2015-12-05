@@ -46,7 +46,6 @@ namespace Dzień_na_wyścigach
             return false;
         }
 
-        //necessary?
         public void OnRaceStart()
         {
             PositionInRace = -1;
