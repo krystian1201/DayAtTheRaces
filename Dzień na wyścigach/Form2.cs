@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Timers;
 using System.Windows.Forms;
@@ -9,6 +10,8 @@ namespace Dzień_na_wyścigach
 {
     public partial class Form2 : Form
     {
+        public IMessageBoxService MessageBoxService { get; set; }
+
         private readonly List<Greyhound> _greyhounds;
         private readonly HashSet<Player> _players;
         private static int _ticks;
@@ -43,6 +46,8 @@ namespace Dzień_na_wyścigach
 
             _greyhoundDisplayController = new GreyhoundDisplayController(_greyhounds);
             _playersDisplayController = new PlayersDisplayController(_players);
+
+            MessageBoxService = new MessageBoxService();
         }
 
         private void InitializeRaceTrack()
@@ -148,22 +153,74 @@ namespace Dzień_na_wyścigach
             //we should also check if there was a new row inserted
             if (rowsCount >= 2)
             {
-                string playerName = dataGridViewPlayers.Rows[rowsCount - 2].Cells["PlayerNameColumn"].Value.ToString();
-
-                string playerMoney = dataGridViewPlayers.Rows[rowsCount - 2].Cells["PlayerMoneyColumn"].Value.ToString();
-
-                try
+                for (int rowIndex = 0; rowIndex < rowsCount - 1; rowIndex++)
                 {
-                    _playersDisplayController.AddPlayer(playerName, playerMoney);
-                }
-                catch (Exception exception)
-                {
+                    string playerName = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerNameColumn"].Value.ToString();
+                    string playerMoney = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerMoneyColumn"].Value.ToString();
 
-                    MessageBox.Show(exception.Message);
-                }
+                    //bool isNew = dataGridViewPlayers.Rows[rowIndex].IsNewRow;
+                    //var lol = dataGridViewPlayers.Rows[rowIndex].State;
 
+                    if (!WasRowAlreadyAdded(rowIndex))
+                    {
+                        OnNewRowOfPlayerAdded(playerName, playerMoney, rowIndex);
+                    }
+                } 
             }
   
+        }
+
+        private bool WasRowAlreadyAdded(int rowIndex)
+        {
+            return dataGridViewPlayers.Rows[rowIndex].ReadOnly;
+        }
+
+        private void OnNewRowOfPlayerAdded(string playerName, string playerMoney, int rowIndex)
+        {
+            try
+            {
+                _playersDisplayController.AddPlayer(playerName, playerMoney);
+
+                dataGridViewPlayers.Rows[rowIndex].ReadOnly = true;
+                dataGridViewPlayers.Rows[rowIndex].DefaultCellStyle.BackColor = Color.LightGray;
+
+                buttonAddPlayer.Enabled = false;
+            }
+            catch (Exception exception)
+            {
+                MessageBoxService.Show(exception.Message);
+            }
+        }
+
+        public void dataGridViewPlayers_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowsCount = dataGridViewPlayers.Rows.Count;
+
+            if (AreAllRowCellsFilled(rowsCount - 2) && !WasRowAlreadyAdded(rowsCount - 2))
+            {
+                buttonAddPlayer.Enabled = true;
+            }
+        }
+
+        private bool AreAllRowCellsFilled(int rowIndex)
+        {
+            object name = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerNameColumn"].EditedFormattedValue;
+            object money = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerMoneyColumn"].EditedFormattedValue;
+
+            return name != null && name.ToString() != "" && money != null && money.ToString() != "";
+        }
+    }
+
+    public interface IMessageBoxService
+    {
+        void Show(string message);
+    }
+
+    public class MessageBoxService : IMessageBoxService
+    {
+        public void Show(string message)
+        {
+            MessageBox.Show(message);
         }
     }
 }
