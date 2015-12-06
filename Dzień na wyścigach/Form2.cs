@@ -10,13 +10,14 @@ namespace Dzień_na_wyścigach
     public partial class Form2 : Form
     {
         private readonly List<Greyhound> _greyhounds;
-        private readonly List<Player> _players;
+        private readonly HashSet<Player> _players;
         private static int _ticks;
         private static Timer _timer;
 
         private readonly RaceController _raceController;
         private readonly RaceTrackDisplayController _raceTrackDisplayController;
         private readonly GreyhoundDisplayController _greyhoundDisplayController;
+        private readonly PlayersDisplayController _playersDisplayController;
 
         public volatile int CurrentFinishingPosition;
 
@@ -25,7 +26,7 @@ namespace Dzień_na_wyścigach
             InitializeComponent();
 
             _greyhounds = new List<Greyhound>();
-            _players = new List<Player>();
+            _players = new HashSet<Player>();
 
             //interval in miliseconds
             _timer = new Timer(50);
@@ -41,6 +42,7 @@ namespace Dzień_na_wyścigach
             InitializeRaceTrack();
 
             _greyhoundDisplayController = new GreyhoundDisplayController(_greyhounds);
+            _playersDisplayController = new PlayersDisplayController(_players);
         }
 
         private void InitializeRaceTrack()
@@ -138,9 +140,30 @@ namespace Dzień_na_wyścigach
             } 
         }
 
-        private void buttonAddPlayer_Click(object sender, EventArgs e)
+        public void buttonAddPlayer_Click(object sender, EventArgs e)
         {
-            Player player = new Player();
+
+            int rowsCount = dataGridViewPlayers.Rows.Count;
+
+            //we should also check if there was a new row inserted
+            if (rowsCount >= 2)
+            {
+                string playerName = dataGridViewPlayers.Rows[rowsCount - 2].Cells["PlayerNameColumn"].Value.ToString();
+
+                string playerMoney = dataGridViewPlayers.Rows[rowsCount - 2].Cells["PlayerMoneyColumn"].Value.ToString();
+
+                try
+                {
+                    _playersDisplayController.AddPlayer(playerName, playerMoney);
+                }
+                catch (Exception exception)
+                {
+
+                    MessageBox.Show(exception.Message);
+                }
+
+            }
+  
         }
     }
 }

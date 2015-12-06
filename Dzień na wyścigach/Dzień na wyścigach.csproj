@@ -61,6 +61,7 @@
     <Compile Include="Greyhound.cs" />
     <Compile Include="GreyhoundDisplayController.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayersDisplayController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RaceController.cs" />

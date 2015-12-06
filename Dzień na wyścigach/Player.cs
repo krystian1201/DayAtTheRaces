@@ -18,5 +18,17 @@ namespace Dzień_na_wyścigach
             Name = name;
             Money = money;
         }
+
+        public override bool Equals(object obj)
+        {
+            Player player = obj as Player;
+
+            return player != null && player.Name == Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
     }
 }

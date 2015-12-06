@@ -8,6 +8,8 @@ namespace Dzień_na_wyścigach
 {
     public class Bet
     {
+        public const decimal MINIMUM_BET = 5.0m;
+
         public Player Player { get; private set; }
 
         public Greyhound Greyhound { get; private set; }

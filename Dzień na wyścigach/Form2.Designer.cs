@@ -295,7 +295,6 @@
         private System.Windows.Forms.Label labelBets;
         public System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonAcceptBet;
-        //private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown numericUpDownNumberOfGreyhounds;
         private System.Windows.Forms.Label labelNumberOfGreyhounds;
         private System.Windows.Forms.GroupBox groupBoxResults;
@@ -304,7 +303,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsGreyhoundColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultsTime;
         private System.Windows.Forms.Label labelPlayers;
-        private System.Windows.Forms.DataGridView dataGridViewPlayers;
+        public System.Windows.Forms.DataGridView dataGridViewPlayers;
         private System.Windows.Forms.DataGridView dataGridViewBets;
         private System.Windows.Forms.Button buttonAddPlayer;
         private System.Windows.Forms.DataGridViewComboBoxColumn BetPlayerColumn;
