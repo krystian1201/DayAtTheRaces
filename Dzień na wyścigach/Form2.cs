@@ -6,7 +6,7 @@ using System.Timers;
 using System.Windows.Forms;
 using Timer = System.Timers.Timer;
 
-namespace Dzień_na_wyścigach
+namespace DayAtTheRaces
 {
     public partial class Form2 : Form
     {
@@ -31,13 +31,7 @@ namespace Dzień_na_wyścigach
             _greyhounds = new List<Greyhound>();
             _players = new HashSet<Player>();
 
-            //interval in miliseconds
-            _timer = new Timer(50);
-            _timer.Elapsed += OnTimedEvent;
-            _timer.AutoReset = true;
-            _timer.SynchronizingObject = this;
-
-            _ticks = 0;
+            InitializeTimer();
 
             _raceController = new RaceController(this, _timer, _greyhounds);
             _raceTrackDisplayController = new RaceTrackDisplayController(this, _greyhounds);
@@ -48,6 +42,17 @@ namespace Dzień_na_wyścigach
             _playersDisplayController = new PlayersDisplayController(_players);
 
             MessageBoxService = new MessageBoxService();
+        }
+
+        private void InitializeTimer()
+        {
+            //interval in miliseconds
+            _timer = new Timer(50);
+            _timer.Elapsed += OnTimedEvent;
+            _timer.AutoReset = true;
+            _timer.SynchronizingObject = this;
+
+            _ticks = 0;
         }
 
         private void InitializeRaceTrack()
@@ -158,9 +163,6 @@ namespace Dzień_na_wyścigach
                     string playerName = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerNameColumn"].Value.ToString();
                     string playerMoney = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerMoneyColumn"].Value.ToString();
 
-                    //bool isNew = dataGridViewPlayers.Rows[rowIndex].IsNewRow;
-                    //var lol = dataGridViewPlayers.Rows[rowIndex].State;
-
                     if (!WasRowAlreadyAdded(rowIndex))
                     {
                         OnNewRowOfPlayerAdded(playerName, playerMoney, rowIndex);
@@ -207,7 +209,7 @@ namespace Dzień_na_wyścigach
             object name = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerNameColumn"].EditedFormattedValue;
             object money = dataGridViewPlayers.Rows[rowIndex].Cells["PlayerMoneyColumn"].EditedFormattedValue;
 
-            return name != null && name.ToString() != "" && money != null && money.ToString() != "";
+            return !string.IsNullOrEmpty(name.ToString()) && !string.IsNullOrEmpty(money.ToString());
         }
     }
 

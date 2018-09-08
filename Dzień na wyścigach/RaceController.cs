@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Timers;
 
-namespace Dzień_na_wyścigach
+namespace DayAtTheRaces
 {
     public class RaceController
     {

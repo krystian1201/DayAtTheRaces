@@ -1,4 +1,4 @@
-﻿namespace Dzień_na_wyścigach
+﻿namespace DayAtTheRaces
 {
     partial class Form2
     {

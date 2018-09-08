@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dzień_na_wyścigach;
+using DayAtTheRaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DayAtTheRaces_Test

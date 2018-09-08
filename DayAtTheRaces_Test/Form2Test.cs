@@ -1,6 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
-using Dzień_na_wyścigach;
+﻿using System.Windows.Forms;
+using DayAtTheRaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

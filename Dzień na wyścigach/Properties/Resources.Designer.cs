@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Dzień_na_wyścigach.Properties {
+namespace DayAtTheRaces.Properties {
     using System;
     
     

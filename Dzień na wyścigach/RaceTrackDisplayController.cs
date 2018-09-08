@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using Dzień_na_wyścigach.Properties;
+using DayAtTheRaces.Properties;
 
-namespace Dzień_na_wyścigach
+namespace DayAtTheRaces
 {
     public class RaceTrackDisplayController
     {

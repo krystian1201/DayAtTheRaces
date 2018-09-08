@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Dzień_na_wyścigach
+namespace DayAtTheRaces
 {
     public class Greyhound
     {
