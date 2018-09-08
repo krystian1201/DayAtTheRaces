@@ -62,7 +62,7 @@
     <Compile Include="Form2Test.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dzień na wyścigach\DayAtTheRaces.csproj">
+    <ProjectReference Include="..\DayAtTheRaces\DayAtTheRaces.csproj">
       <Project>{bc865f10-a1ed-4964-bc0b-af2e94f45a81}</Project>
       <Name>DayAtTheRaces</Name>
     </ProjectReference>
