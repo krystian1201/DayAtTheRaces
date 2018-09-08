@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dzień na wyścigach", "Dzień na wyścigach\Dzień na wyścigach.csproj", "{BC865F10-A1ED-4964-BC0B-AF2E94F45A81}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayAtTheRaces", "Dzień na wyścigach\DayAtTheRaces.csproj", "{BC865F10-A1ED-4964-BC0B-AF2E94F45A81}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayAtTheRaces_Test", "DayAtTheRaces_Test\DayAtTheRaces_Test.csproj", "{1C5F12CA-BF42-4C5D-AC7C-EE201152B17A}"
 EndProject
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB935B21-7AC9-4D13-8A9D-57162185B272}
 	EndGlobalSection
 EndGlobal
